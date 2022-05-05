@@ -18,7 +18,12 @@ public class AccountBasicCLI {
         bankCore.createNewAccount(accountType, clientId);
     }
     //CHANGE FROM THE PICTURE
-    public List<Account> getAccounts(String clientId) {
-        return this.accountListing.getClientAccounts(clientId);
+    public void getAccounts(String clientId) {
+        List<Account> accountList = this.accountListing.getClientAccounts(clientId);
+        System.out.println("[");
+        for(Account account: accountList) {
+            System.out.println(account);
+        }
+        System.out.print("]");
     }
 }
