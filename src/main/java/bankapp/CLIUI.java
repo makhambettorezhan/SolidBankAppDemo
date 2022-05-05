@@ -5,5 +5,6 @@ public interface CLIUI extends CreateAccountOperationUI {
 
     public String requestClientAccountNumber();
 
+    @Override
     public AccountType requestAccountType();
 }
