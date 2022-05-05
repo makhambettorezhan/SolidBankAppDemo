@@ -10,7 +10,7 @@ public class BankCore {
     }
 
     public void createNewAccount(AccountType accountType, String clientId) {
-        //accountCreation.create(accountType, id, clientId, id);
+        accountCreation.create(accountType, id, clientId, lastAccountNumber);
     }
 
     private void incrementLastAccountNumber() {
