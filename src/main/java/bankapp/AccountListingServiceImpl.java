@@ -5,6 +5,10 @@ import java.util.List;
 public class AccountListingServiceImpl implements AccountListingService {
     private AccountDAO accountDAO;
 
+    public AccountListingServiceImpl(AccountDAO accountDAO) {
+        this.accountDAO = accountDAO;
+    }
+
     @Override
     public Account getClientAccount(String clientId, String accountId) {
         return accountDAO.getClientAccount(clientId, accountId);
