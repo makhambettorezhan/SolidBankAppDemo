@@ -20,11 +20,14 @@ public class MyCLI implements CLIUI {
 
     @Override
     public String requestClientAccountNumber() {
+        //String accountId = scanner.nextLine();
+        //return accountId;
         return null;
     }
 
     @Override
     public AccountType requestAccountType() {
-        return null;
+        String type = scanner.nextLine();
+        return new AccountType(type);
     }
 }
