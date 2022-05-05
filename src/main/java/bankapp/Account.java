@@ -54,4 +54,15 @@ public class Account {
     public void setWithdrawAllowed(boolean withdrawAllowed) {
         this.withdrawAllowed = withdrawAllowed;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountType=" + accountType.getType() +
+                ", id='" + id + '\'' +
+                ", clientId='" + clientId + '\'' +
+                ", balance=" + balance +
+                ", withdrawAllowed=" + withdrawAllowed +
+                '}';
+    }
 }
