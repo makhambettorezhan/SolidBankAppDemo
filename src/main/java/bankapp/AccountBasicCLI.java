@@ -1,5 +1,7 @@
 package bankapp;
 
+import java.util.List;
+
 public class AccountBasicCLI {
     private CreateAccountOperationUI createAccountOperationUI;
     private BankCore bankCore;
@@ -11,7 +13,12 @@ public class AccountBasicCLI {
         this.accountListing = accountListing;
     }
 
-    public void createAccountRequest(String clientId) {}
-
-    public void getAccounts(String clientId) {}
+    public void createAccountRequest(String clientId) {
+        //AccountType accountType = createAccountOperationUI.requestAccountType();
+        //bankCore.createNewAccount(accountType, clientId);
+    }
+    //CHANGE FROM THE PICTURE
+    public List<Account> getAccounts(String clientId) {
+        return this.accountListing.getClientAccounts(clientId);
+    }
 }
