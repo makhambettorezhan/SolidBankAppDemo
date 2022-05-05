@@ -16,15 +16,11 @@ public class DemoApplication {
 		BankCore bankCore = new BankCore(accountCreationService);
 		AccountBasicCLI accountBasicCLI = new AccountBasicCLI(createAccountOperationUI, bankCore, accountListingService);
 
-		accountBasicCLI.createAccountRequest("0001");
-		accountBasicCLI.createAccountRequest("0001");
-		accountBasicCLI.createAccountRequest("0001");
-		//accountBasicCLI.createAccountRequest("0002");
-		//accountBasicCLI.createAccountRequest("0003");
+		accountBasicCLI.createAccountRequest("1");
+		accountBasicCLI.createAccountRequest("1");
+		accountBasicCLI.createAccountRequest("1");
 
-		for(Account account: accountBasicCLI.getAccounts("0001")) {
-			System.out.println(account.toString());
-		}
+		accountBasicCLI.getAccounts("1");
 
 	}
 
