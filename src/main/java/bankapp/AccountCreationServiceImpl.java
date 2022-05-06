@@ -9,9 +9,11 @@ public class AccountCreationServiceImpl implements AccountCreationService {
 
     @Override
     public void create(AccountType accountType, long bankId, String clientId, long accountId) {
-        String accountNumber = String.format("%03d%06d", bankId, accountId );
-        Account account = new Account(accountType, accountNumber, clientId, 0, false);
-        System.out.println("Bank account created");
-        accountDAO.createNewAccount(account);
+        if(accountType != null) {
+            String accountNumber = String.format("%03d%06d", bankId, accountId);
+            Account account = new Account(accountType, accountNumber, clientId, 0, false);
+            System.out.println("Bank account created");
+            accountDAO.createNewAccount(account);
+        }
     }
 }
