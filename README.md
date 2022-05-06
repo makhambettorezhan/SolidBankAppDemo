@@ -10,3 +10,5 @@ In the main directory called solidbankapp execute the following command
 ```bash
 java -cp out/artifacts/demo_jar/demo.jar src/main/java/bankapp/DemoApplication.java
 ```
+The output is the following:
+![output](https://i.imgur.com/UQI2hFs.png)
