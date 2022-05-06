@@ -24,6 +24,6 @@ public class AccountBasicCLI {
         for(Account account: accountList) {
             System.out.println(account);
         }
-        System.out.print("]");
+        System.out.println("]");
     }
 }

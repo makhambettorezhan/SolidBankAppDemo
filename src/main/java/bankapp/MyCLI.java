@@ -27,7 +27,8 @@ public class MyCLI implements CLIUI {
 
     @Override
     public AccountType requestAccountType() {
-        System.out.println("Please enter an account type: ");
+        System.out.println("Choose account type");
+        System.out.println("[CHECKING, SAVING, FIXED]");
         String type = scanner.nextLine();
         return new AccountType(type);
     }
