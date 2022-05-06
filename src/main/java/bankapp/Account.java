@@ -62,7 +62,6 @@ public class Account {
                 ", id='" + id + '\'' +
                 ", clientId='" + clientId + '\'' +
                 ", balance=" + balance +
-                ", withdrawAllowed=" + withdrawAllowed +
                 '}';
     }
 }
