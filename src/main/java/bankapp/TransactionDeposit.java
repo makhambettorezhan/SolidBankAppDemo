@@ -8,8 +8,8 @@ public class TransactionDeposit {
     private TransactionDAO transactionDAO;
 
     public void execute(double amount, Account accountDeposit) {
-        accountDepositService.deposit(amount, accountDeposit);
 
+        accountDepositService.deposit(amount, accountDeposit);
         transactionDAO.addTransaction(new Transaction("deposit", amount, accountDeposit.getId()));
     }
 }

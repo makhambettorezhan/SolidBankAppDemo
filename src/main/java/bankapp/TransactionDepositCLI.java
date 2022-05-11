@@ -9,9 +9,10 @@ public class TransactionDepositCLI {
     private AccountListingService accountListing;
 
     public void depositMoney(String clientId) {
-        System.out.println("Type amount of Money to Deposit");
+
         double amount = withdrawDepositOperationCLIUI.requestClientAmount();
         String accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
-        transactionDeposit.execute(amount, accountListing.getClientAccount(clientId, accountId));
+        if(!accountId.isEmpty())
+            transactionDeposit.execute(amount, accountListing.getClientAccount(clientId, accountId));
     }
 }

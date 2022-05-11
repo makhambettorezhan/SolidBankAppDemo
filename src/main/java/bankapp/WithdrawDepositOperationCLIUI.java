@@ -1,7 +1,7 @@
 package bankapp;
 
-public interface WithdrawDepositOperationCLIUI extends CLIUI {
+public interface WithdrawDepositOperationCLIUI {
     public double requestClientAmount();
 
-    public String requestClientAmountNumber();
+    public String requestClientAccountNumber();
 }

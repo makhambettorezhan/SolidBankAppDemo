@@ -31,11 +31,11 @@ public class DemoApplication {
 		*/
 		//ApplicationContext context = new ClassPathXmlApplicationContext("props.xml");
 		//AccountBasicCLI accountBasicCLI = (AccountBasicCLI) context.getBean("accountBasicCLI");
-
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-		AccountBasicCLI accountBasicCLI = ctx.getBean(AccountBasicCLI.class);
+		String clientId = "1";
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		AccountBasicCLI accountBasicCLI = context.getBean(AccountBasicCLI.class);
 		printHelp();
-
+		TransactionDepositCLI transactionDepositCLI = context.getBean(TransactionDepositCLI.class);
 
 		Scanner input = new Scanner(System.in);
 		int choice = input.nextInt();
@@ -43,11 +43,13 @@ public class DemoApplication {
 		while(choice != 7) {
 			switch (choice) {
 				case 1:
-					accountBasicCLI.getAccounts("1");
+					accountBasicCLI.getAccounts(clientId);
 					break;
 				case 2:
-					accountBasicCLI.createAccountRequest("1");
+					accountBasicCLI.createAccountRequest(clientId);
 					break;
+				case 3:
+					transactionDepositCLI.depositMoney(clientId);
 				case 6:
 					printHelp();
 					break;

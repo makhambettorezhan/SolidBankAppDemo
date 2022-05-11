@@ -17,14 +17,17 @@ public class MyCLI implements CLIUI {
 
     @Override
     public double requestClientAmount() {
-        return 0;
+        System.out.println("Type amount of Money: ");
+        return scanner.nextDouble();
     }
+
+
 
     @Override
     public String requestClientAccountNumber() {
-        //String accountId = scanner.nextLine();
-        //return accountId;
-        return null;
+        System.out.println("Type account ID: ");
+        String accountId = scanner.next();
+        return accountId;
     }
 
     @Override
