@@ -1,16 +1,18 @@
 package bankapp;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Scanner;
 
-//@SpringBootApplication
+@SpringBootApplication
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		//SpringApplication.run(DemoApplication.class, args);
-		ApplicationContext context = new ClassPathXmlApplicationContext("props.xml");
+
 
 
 		//AccountDAO accountDAO = new MemoryAccountDAO();
@@ -27,9 +29,11 @@ public class DemoApplication {
 		AccountListingService accountListingService = (AccountListingServiceImpl) context.getBean("accountListingServiceImpl");
 		BankCore bankCore = (BankCore) context.getBean("bankCore");
 		*/
+		//ApplicationContext context = new ClassPathXmlApplicationContext("props.xml");
+		//AccountBasicCLI accountBasicCLI = (AccountBasicCLI) context.getBean("accountBasicCLI");
 
-		AccountBasicCLI accountBasicCLI = (AccountBasicCLI) context.getBean("accountBasicCLI");
-
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+		AccountBasicCLI accountBasicCLI = ctx.getBean(AccountBasicCLI.class);
 		printHelp();
 
 

@@ -26,6 +26,6 @@ public class AccountListingServiceImpl implements AccountListingService {
 
     @Override
     public List<Account> getClientAccountsByType(String clientId, AccountType accountType) {
-        return getClientAccountsByType(clientId, accountType);
+        return accountDAO.getClientAccountsByType(clientId, accountType);
     }
 }

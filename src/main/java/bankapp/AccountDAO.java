@@ -7,7 +7,7 @@ public interface AccountDAO {
 
     public void createNewAccount(Account account);
 
-    public void updateAccount(Account account);
+    public void updateAccount(Account account, double amount);
 
     public List<Account> getClientAccountsByType(String clientId, AccountType accountType);
 
