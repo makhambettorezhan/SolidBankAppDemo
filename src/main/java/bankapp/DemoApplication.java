@@ -26,7 +26,7 @@ public class DemoApplication implements CommandLineRunner {
 		AccountBasicCLI accountBasicCLI = context.getBean(AccountBasicCLI.class);
 		MyCLI myCLI = context.getBean(MyCLI.class);
 		TransactionDepositCLI transactionDepositCLI = context.getBean(TransactionDepositCLI.class);
-		//TransactionWithdrawCLI transactionWithdrawCLI = context.getBean(TransactionWithdrawCLI.class);
+		TransactionWithdrawCLI transactionWithdrawCLI = context.getBean(TransactionWithdrawCLI.class);
 
 		Scanner input = new Scanner(System.in);
 		printHelp();
@@ -42,6 +42,8 @@ public class DemoApplication implements CommandLineRunner {
 					break;
 				case "3":
 					transactionDepositCLI.depositMoney(clientId); break;
+				case "4":
+					transactionWithdrawCLI.withdrawMoney(clientId); break;
 				case "6":
 					printHelp();
 					break;

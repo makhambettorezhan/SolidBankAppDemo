@@ -59,9 +59,13 @@ public class MemoryAccountDAO implements AccountDAO {
     @Override
     public AccountWithdraw getClientWithdrawAccount(String clientId, String accountId) {
         for(Account account: accountList) {
-            if(account.getClientId().equals(clientId)) {
+            if(account.getClientId().equals(clientId) && account.getId().equals(accountId)) {
                 if(account.isWithdrawAllowed()) {
-                    return null;
+                    return new AccountWithdraw(account.getAccountType(),
+                            account.getId(),
+                            account.getClientId(),
+                            account.getBalance(),
+                            true);
                 }
             }
         }
