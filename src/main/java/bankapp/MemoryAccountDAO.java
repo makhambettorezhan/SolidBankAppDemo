@@ -35,7 +35,6 @@ public class MemoryAccountDAO implements AccountDAO {
 
     @Override
     public void updateAccount(Account account, double amount) {
-        //account.setBalance(amount);
         for(Account a: accountList) {
             if(a.getId().equals(account.getId())) {
                 a.setBalance(amount);

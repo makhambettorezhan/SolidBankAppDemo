@@ -9,7 +9,13 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
     private AccountDAO accountDAO;
     @Override
     public void withdraw(double amount, AccountWithdraw account) {
-        System.out.println(amount + "$ transferred from " + account.getId() + " account");
-        accountDAO.updateAccount(account, account.getBalance()-amount);
+        double withdrawResult = account.getBalance()-amount;
+        if(withdrawResult > 0) {
+            System.out.println(amount + "$ transferred from " + account.getId() + " account");
+            accountDAO.updateAccount(account, account.getBalance()-amount);
+        } else {
+            System.out.println("Withdraw not possible: not enough money");
+        }
+
     }
 }
