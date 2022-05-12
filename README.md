@@ -10,5 +10,14 @@ In the main directory called solidbankapp execute the following command
 ```bash
 java -cp out/artifacts/demo_jar/demo.jar src/main/java/bankapp/DemoApplication.java
 ```
-The output is the following:
+## CLI inputs
+- 1 - show accounts  
+- 2 - create account  
+- 3 - deposit  
+- 4 - withdraw  
+- 5 - transfer  
+- 6 - this message  
+- 7 - exit  
+
+The output of the SolidBankApp1 is the following:
 ![output](https://i.imgur.com/UQI2hFs.png)
