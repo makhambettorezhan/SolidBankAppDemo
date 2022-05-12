@@ -9,17 +9,17 @@
 
 
 
-    <bean id="myCLI" class="bankapp.MyCLI">
+    <bean id="myCLI" class="bankapp.cli.MyCLI">
     </bean>
 
-    <bean id="accountDAO" class="bankapp.MemoryAccountDAO">
+    <bean id="accountDAO" class="bankapp.dao.MemoryAccountDAO">
     </bean>
 
-    <bean id="accountCreationServiceImpl" class="bankapp.AccountCreationServiceImpl">
+    <bean id="accountCreationServiceImpl" class="bankapp.service.AccountCreationServiceImpl">
         <constructor-arg ref="accountDAO"></constructor-arg>
     </bean>
 
-    <bean id="accountListingServiceImpl" class="bankapp.AccountListingServiceImpl">
+    <bean id="accountListingServiceImpl" class="bankapp.service.AccountListingServiceImpl">
         <constructor-arg ref="accountDAO"></constructor-arg>
     </bean>
 
@@ -27,7 +27,7 @@
         <constructor-arg ref="accountCreationServiceImpl"></constructor-arg>
     </bean>
 
-    <bean id="accountBasicCLI" class="bankapp.AccountBasicCLI">
+    <bean id="accountBasicCLI" class="bankapp.cli.AccountBasicCLI">
         <constructor-arg ref="myCLI"></constructor-arg>
         <constructor-arg ref="bankCore"></constructor-arg>
         <constructor-arg ref="accountListingServiceImpl"></constructor-arg>

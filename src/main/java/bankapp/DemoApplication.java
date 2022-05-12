@@ -1,12 +1,13 @@
 package bankapp;
 
+import bankapp.cli.AccountBasicCLI;
+import bankapp.cli.MyCLI;
+import bankapp.cli.TransactionDepositCLI;
+import bankapp.cli.TransactionWithdrawCLI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Scanner;
