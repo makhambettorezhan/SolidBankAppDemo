@@ -21,3 +21,6 @@ java -cp out/artifacts/demo_jar/demo.jar src/main/java/bankapp/DemoApplication.j
 
 The output of the SolidBankApp1 is the following:
 ![output](https://i.imgur.com/UQI2hFs.png)
+
+## SOLIDBANKAPP2 OUTPUT
+![output2](https://i.imgur.com/X9ePcz5.png)
