@@ -3,15 +3,13 @@ package bankapp.service;
 import bankapp.account.Account;
 import bankapp.dao.AccountDAO;
 import bankapp.account.AccountType;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@AllArgsConstructor
 public class AccountCreationServiceImpl implements AccountCreationService {
     private AccountDAO accountDAO;
-
-    public AccountCreationServiceImpl(AccountDAO accountDAO) {
-        this.accountDAO = accountDAO;
-    }
 
     @Override
     public void create(AccountType accountType, long bankId, String clientId, long accountId) {

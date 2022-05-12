@@ -2,10 +2,12 @@ package bankapp.service;
 
 import bankapp.dao.AccountDAO;
 import bankapp.account.AccountWithdraw;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@AllArgsConstructor
 public class AccountWithdrawServiceImpl implements AccountWithdrawService {
     @Autowired
     private AccountDAO accountDAO;

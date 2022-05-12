@@ -1,6 +1,7 @@
 package bankapp.cli;
 
 import bankapp.account.AccountType;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 @Service
+@AllArgsConstructor
 @Getter
 public class MyCLI implements CLIUI {
 
@@ -16,10 +18,6 @@ public class MyCLI implements CLIUI {
     @Autowired
     public MyCLI() {
         this.scanner = new Scanner(System.in);
-    }
-
-    public MyCLI(Scanner scanner) {
-        this.scanner = scanner;
     }
 
     @Override

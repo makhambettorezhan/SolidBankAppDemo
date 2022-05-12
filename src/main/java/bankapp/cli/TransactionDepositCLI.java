@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@AllArgsConstructor()
+@AllArgsConstructor
 public class TransactionDepositCLI {
     private TransactionDeposit transactionDeposit;
     private WithdrawDepositOperationCLIUI withdrawDepositOperationCLIUI;
