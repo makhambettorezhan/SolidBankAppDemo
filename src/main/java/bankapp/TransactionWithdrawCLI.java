@@ -13,7 +13,14 @@ public class TransactionWithdrawCLI {
     public void withdrawMoney(String clientId) {
         double amount = withdrawDepositOperationCLIUI.requestClientAmount();
         String accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
+        AccountWithdraw accountWithdraw = null;
+
         if(!accountId.isEmpty())
-            transactionWithdraw.execute(amount, accountListing.getClientWithdrawAccount(clientId, accountId));
+            accountWithdraw = accountListing.getClientWithdrawAccount(clientId, accountId);
+
+        if(accountWithdraw != null)
+            transactionWithdraw.execute(amount, accountWithdraw);
+        else
+            System.out.println("withdraw NOT allowed on FIXED account");
     }
 }
