@@ -22,7 +22,6 @@ public class DemoApplication implements CommandLineRunner {
 	public void run(String... arg0) throws Exception {
 
 		String clientId = "1";
-		//context = new AnnotationConfigApplicationContext(AppConfig.class);
 		AccountBasicCLI accountBasicCLI = context.getBean(AccountBasicCLI.class);
 		MyCLI myCLI = context.getBean(MyCLI.class);
 		TransactionDepositCLI transactionDepositCLI = context.getBean(TransactionDepositCLI.class);
@@ -31,9 +30,9 @@ public class DemoApplication implements CommandLineRunner {
 		Scanner input = new Scanner(System.in);
 		printHelp();
 		boolean running = true;
-
+		Scanner scanner = myCLI.getScanner();
 		while(running) {
-			switch (input.nextLine()) {
+			switch (scanner.nextLine()) {
 				case "1":
 					accountBasicCLI.getAccounts(clientId);
 					break;
@@ -48,13 +47,14 @@ public class DemoApplication implements CommandLineRunner {
 					printHelp();
 					break;
 				case "7":
-					running = false; break;
+					System.out.println("Application closed");
+					running = false;
+					break;
 				default:
 					System.out.println("Error: invalid command");
 			}
-			//myCLI.getScanner().close();
+			//scanner.close();
 		}
-		System.out.println("Application closed");
 	}
 
 	public static void printHelp() {

@@ -14,7 +14,12 @@ public class TransactionDepositCLI {
 
         double amount = withdrawDepositOperationCLIUI.requestClientAmount();
         String accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
+        Account account = null;
         if(!accountId.isEmpty())
-            transactionDeposit.execute(amount, accountListing.getClientAccount(clientId, accountId));
+            account = accountListing.getClientAccount(clientId, accountId);
+        if(account != null)
+            transactionDeposit.execute(amount, account);
+        else
+            System.out.println("Account not found");
     }
 }
