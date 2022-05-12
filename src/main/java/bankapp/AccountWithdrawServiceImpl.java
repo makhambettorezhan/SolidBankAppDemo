@@ -10,7 +10,7 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
     @Override
     public void withdraw(double amount, AccountWithdraw account) {
         double withdrawResult = account.getBalance()-amount;
-        if(withdrawResult > 0) {
+        if(withdrawResult >= 0) {
             System.out.println(amount + "$ transferred from " + account.getId() + " account");
             accountDAO.updateAccount(account, account.getBalance()-amount);
         } else {
