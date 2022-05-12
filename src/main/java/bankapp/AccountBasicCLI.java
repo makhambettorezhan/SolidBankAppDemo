@@ -1,7 +1,9 @@
 package bankapp;
 
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Repository
 public class AccountBasicCLI {
     private CreateAccountOperationUI createAccountOperationUI;
     private BankCore bankCore;

@@ -1,5 +1,8 @@
 package bankapp;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class AccountCreationServiceImpl implements AccountCreationService {
     private AccountDAO accountDAO;
 

@@ -1,64 +1,56 @@
 package bankapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Scanner;
-
 @SpringBootApplication
-public class DemoApplication {
+public class DemoApplication implements CommandLineRunner {
+	@Autowired
+	private ApplicationContext context;
 
 	public static void main(String[] args) {
-		//SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(DemoApplication.class);
+	}
+	@Override
+	public void run(String... arg0) throws Exception {
 
-
-
-		//AccountDAO accountDAO = new MemoryAccountDAO();
-		//CreateAccountOperationUI createAccountOperationUI = new MyCLI();
-		//AccountCreationService accountCreationService = new AccountCreationServiceImpl(accountDAO);
-		//AccountListingService accountListingService = new AccountListingServiceImpl(accountDAO);
-		//BankCore bankCore = new BankCore(accountCreationService);
-		//AccountBasicCLI accountBasicCLI = new AccountBasicCLI(createAccountOperationUI, bankCore, accountListingService);
-
-		/* NOT NEEDED - FOR CONVENIENCE ONLY
-		AccountDAO accountDAO = (MemoryAccountDAO) context.getBean("accountDAO");
-		CreateAccountOperationUI createAccountOperationUI = (CreateAccountOperationUI) context.getBean("myCLI");
-		AccountCreationService accountCreationService = (AccountCreationServiceImpl) context.getBean("accountCreationServiceImpl");
-		AccountListingService accountListingService = (AccountListingServiceImpl) context.getBean("accountListingServiceImpl");
-		BankCore bankCore = (BankCore) context.getBean("bankCore");
-		*/
-		//ApplicationContext context = new ClassPathXmlApplicationContext("props.xml");
-		//AccountBasicCLI accountBasicCLI = (AccountBasicCLI) context.getBean("accountBasicCLI");
 		String clientId = "1";
-		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		//context = new AnnotationConfigApplicationContext(AppConfig.class);
 		AccountBasicCLI accountBasicCLI = context.getBean(AccountBasicCLI.class);
-		printHelp();
+		MyCLI myCLI = context.getBean(MyCLI.class);
 		TransactionDepositCLI transactionDepositCLI = context.getBean(TransactionDepositCLI.class);
+		//TransactionWithdrawCLI transactionWithdrawCLI = context.getBean(TransactionWithdrawCLI.class);
 
 		Scanner input = new Scanner(System.in);
-		int choice = input.nextInt();
+		printHelp();
+		boolean running = true;
 
-		while(choice != 7) {
-			switch (choice) {
-				case 1:
+		while(running) {
+			switch (input.nextLine()) {
+				case "1":
 					accountBasicCLI.getAccounts(clientId);
 					break;
-				case 2:
+				case "2":
 					accountBasicCLI.createAccountRequest(clientId);
 					break;
-				case 3:
-					transactionDepositCLI.depositMoney(clientId);
-				case 6:
+				case "3":
+					transactionDepositCLI.depositMoney(clientId); break;
+				case "6":
 					printHelp();
 					break;
-				case 7:
-					return;
+				case "7":
+					running = false; break;
 				default:
 					System.out.println("Error: invalid command");
 			}
-			choice = input.nextInt();
+			//myCLI.getScanner().close();
 		}
 		System.out.println("Application closed");
 	}

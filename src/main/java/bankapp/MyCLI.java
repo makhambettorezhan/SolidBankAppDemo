@@ -1,10 +1,16 @@
 package bankapp;
 
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
+@Repository
+@Getter
 public class MyCLI implements CLIUI {
+
     private Scanner scanner;
 
     public MyCLI() {
@@ -20,8 +26,6 @@ public class MyCLI implements CLIUI {
         System.out.println("Type amount of Money: ");
         return scanner.nextDouble();
     }
-
-
 
     @Override
     public String requestClientAccountNumber() {

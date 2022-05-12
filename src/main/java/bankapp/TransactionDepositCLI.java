@@ -1,7 +1,9 @@
 package bankapp;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 
+@Repository
 @AllArgsConstructor()
 public class TransactionDepositCLI {
     private TransactionDeposit transactionDeposit;

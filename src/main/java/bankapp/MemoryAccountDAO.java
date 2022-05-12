@@ -1,8 +1,11 @@
 package bankapp;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class MemoryAccountDAO implements AccountDAO {
     List<Account> accountList;
 
@@ -32,7 +35,12 @@ public class MemoryAccountDAO implements AccountDAO {
 
     @Override
     public void updateAccount(Account account, double amount) {
-        account.setBalance(amount);
+        //account.setBalance(amount);
+        for(Account a: accountList) {
+            if(a.getId().equals(account.getId())) {
+                a.setBalance(amount);
+            }
+        }
     }
 
     @Override

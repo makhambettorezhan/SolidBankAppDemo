@@ -1,5 +1,8 @@
 package bankapp;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class BankCore {
     private static long id = 1;
     private long lastAccountNumber = 1;

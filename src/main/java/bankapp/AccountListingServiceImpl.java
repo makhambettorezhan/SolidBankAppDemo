@@ -1,7 +1,9 @@
 package bankapp;
 
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Repository
 public class AccountListingServiceImpl implements AccountListingService {
     private AccountDAO accountDAO;
 
