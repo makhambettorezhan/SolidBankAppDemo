@@ -2,6 +2,7 @@ package bankapp;
 
 import bankapp.account.AccountType;
 import bankapp.service.AccountCreationService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,7 +11,7 @@ public class BankCore {
     private long lastAccountNumber = 1;
     private AccountCreationService accountCreation;
 
-    public BankCore(AccountCreationService accountCreation) {
+    public BankCore(@Qualifier("accountCreationServiceImpl") AccountCreationService accountCreation) {
         this.accountCreation = accountCreation;
     }
 
