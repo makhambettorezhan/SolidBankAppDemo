@@ -1,7 +1,8 @@
 package bankapp.account;
 
 public class AccountWithdraw extends Account {
-    public AccountWithdraw(AccountType accountType, String id, String clientId, double balance, boolean withdrawAllowed) {
-        super(accountType, id, clientId, balance, withdrawAllowed);
+    public AccountWithdraw(long accountId, AccountType accountType,
+                           String clientId, double balance, int withdrawAllowed) {
+        super(accountId, accountType.getType(), clientId, balance, withdrawAllowed);
     }
 }

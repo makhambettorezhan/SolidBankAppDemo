@@ -1,37 +1,40 @@
 package bankapp.service;
 
 import bankapp.account.Account;
-import bankapp.dao.AccountDAO;
 import bankapp.account.AccountType;
 import bankapp.account.AccountWithdraw;
+import bankapp.dao.AccountRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+@AllArgsConstructor
 @Repository
 public class AccountListingServiceImpl implements AccountListingService {
-    private AccountDAO accountDAO;
+    private AccountRepository accountRepository;
 
-    public AccountListingServiceImpl(AccountDAO accountDAO) {
-        this.accountDAO = accountDAO;
+
+    @Override
+    public Account getClientAccount(String clientId, long accountId) {
+        //return accountDAO.getClientAccount(clientId, accountId);
+        return accountRepository.findById(accountId).get();
     }
 
     @Override
-    public Account getClientAccount(String clientId, String accountId) {
-        return accountDAO.getClientAccount(clientId, accountId);
+    public Account getClientWithdrawAccount(String clientId, Long accountId) {
+        //return accountDAO.getClientWithdrawAccount(clientId, accountId);
+        return accountRepository.findById(accountId).get();
+
     }
 
     @Override
-    public AccountWithdraw getClientWithdrawAccount(String clientId, String accountId) {
-        return accountDAO.getClientWithdrawAccount(clientId, accountId);
-    }
-
-    @Override
-    public List<Account> getClientAccounts(String clientId) {
-        return accountDAO.getClientAccounts(clientId);
+    public Iterable<Account> getClientAccounts(String clientId) {
+        return accountRepository.findAll();
     }
 
     @Override
     public List<Account> getClientAccountsByType(String clientId, AccountType accountType) {
-        return accountDAO.getClientAccountsByType(clientId, accountType);
+        //return accountDAO.getClientAccountsByType(clientId, accountType);
+        return null;
     }
 }

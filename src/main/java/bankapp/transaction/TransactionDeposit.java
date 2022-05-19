@@ -15,6 +15,6 @@ public class TransactionDeposit {
     public void execute(double amount, Account accountDeposit) {
 
         accountDepositService.deposit(amount, accountDeposit);
-        transactionDAO.addTransaction(new Transaction("deposit", amount, accountDeposit.getId()));
+        transactionDAO.addTransaction(new Transaction("deposit", amount, "1"));
     }
 }

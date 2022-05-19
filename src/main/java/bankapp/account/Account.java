@@ -1,27 +1,18 @@
 package bankapp.account;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+
+@Data
+@Builder
 @AllArgsConstructor
-@Getter
-@Setter
 public class Account {
-    private AccountType accountType;
-    private String id;
+    private @Id Long account_id;
+
+    private String accountType;
     private String clientId;
     private double balance;
-    private boolean withdrawAllowed;
+    private int withdrawAllowed;
 
 
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "accountType=" + accountType.getType() +
-                ", id='" + id + '\'' +
-                ", clientId='" + clientId + '\'' +
-                ", balance=" + balance +
-                '}';
-    }
 }

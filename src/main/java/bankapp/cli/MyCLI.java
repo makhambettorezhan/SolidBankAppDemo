@@ -27,10 +27,10 @@ public class MyCLI implements CLIUI {
     }
 
     @Override
-    public String requestClientAccountNumber() {
+    public Long requestClientAccountNumber() {
         System.out.println("Type account ID: ");
         String accountId = scanner.nextLine();
-        return accountId;
+        return Long.parseLong(accountId);
     }
 
     @Override

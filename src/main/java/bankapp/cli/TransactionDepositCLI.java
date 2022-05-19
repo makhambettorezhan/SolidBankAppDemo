@@ -16,9 +16,9 @@ public class TransactionDepositCLI {
     public void depositMoney(String clientId) {
 
         double amount = withdrawDepositOperationCLIUI.requestClientAmount();
-        String accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
+        long accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
         Account account = null;
-        if(!accountId.isEmpty())
+        if(accountId> 0)
             account = accountListing.getClientAccount(clientId, accountId);
         if(account != null)
             transactionDeposit.execute(amount, account);

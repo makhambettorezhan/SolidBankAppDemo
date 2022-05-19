@@ -1,5 +1,6 @@
 package bankapp.cli;
 
+import bankapp.account.Account;
 import bankapp.service.AccountListingService;
 import bankapp.account.AccountWithdraw;
 import bankapp.transaction.TransactionWithdraw;
@@ -15,10 +16,10 @@ public class TransactionWithdrawCLI {
 
     public void withdrawMoney(String clientId) {
         double amount = withdrawDepositOperationCLIUI.requestClientAmount();
-        String accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
-        AccountWithdraw accountWithdraw = null;
+        Long accountId = withdrawDepositOperationCLIUI.requestClientAccountNumber();
+        Account accountWithdraw = null;
 
-        if(!accountId.isEmpty())
+        if(accountId>0)
             accountWithdraw = accountListing.getClientWithdrawAccount(clientId, accountId);
 
         if(accountWithdraw != null)

@@ -9,11 +9,11 @@ import java.util.List;
 @Service
 public interface AccountListingService {
 
-    public Account getClientAccount(String clientId, String accountId);
+    public Account getClientAccount(String clientId, long accountId);
 
-    public AccountWithdraw getClientWithdrawAccount(String clientId, String accountId);
+    public Account getClientWithdrawAccount(String clientId, Long accountId);
 
-    public List<Account> getClientAccounts(String clientId);
+    public Iterable<Account> getClientAccounts(String clientId);
 
     public List<Account> getClientAccountsByType(String clientId, AccountType accountType);
 }

@@ -21,13 +21,15 @@ public class AccountBasicCLI {
         AccountType accountType = createAccountOperationUI.requestAccountType();
         bankCore.createNewAccount(accountType, clientId);
     }
-    //CHANGE FROM THE PICTURE
     public void getAccounts(String clientId) {
-        List<Account> accountList = this.accountListing.getClientAccounts(clientId);
+
+        Iterable<Account> accountList = this.accountListing.getClientAccounts(clientId);
         System.out.println("[");
-        for(Account account: accountList) {
-            System.out.println(account);
+        if(accountList != null) {
+            for (Account account : accountList) {
+                System.out.println(account);
+            }
+            System.out.println("]");
         }
-        System.out.println("]");
     }
 }

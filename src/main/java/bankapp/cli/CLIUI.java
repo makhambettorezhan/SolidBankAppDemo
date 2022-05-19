@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public interface CLIUI extends CreateAccountOperationUI, WithdrawDepositOperationCLIUI{
     public double requestClientAmount();
 
-    public String requestClientAccountNumber();
+    public Long requestClientAccountNumber();
 
     @Override
     public AccountType requestAccountType();
