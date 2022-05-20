@@ -22,7 +22,7 @@ public class TransactionWithdrawCLI {
         if(accountId>0)
             accountWithdraw = accountListing.getClientWithdrawAccount(clientId, accountId);
 
-        if(accountWithdraw != null)
+        if(accountWithdraw.getWithdrawAllowed()>0)
             transactionWithdraw.execute(amount, accountWithdraw);
         else
             System.out.println("withdraw NOT allowed on FIXED account");

@@ -2,7 +2,6 @@ package bankapp.account;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
-
 @Data
 @Builder
 @AllArgsConstructor

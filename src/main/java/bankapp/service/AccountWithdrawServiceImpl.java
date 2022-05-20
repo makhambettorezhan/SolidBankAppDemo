@@ -19,7 +19,6 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
             System.out.println(amount + "$ transferred from " + account.getAccount_id() + " account");
             account.setBalance(withdrawResult);
             accountRepository.save(account);
-            //accountDAO.updateAccount(account, account.getBalance()-amount);
         } else {
             System.out.println("Withdraw not possible: not enough money");
         }

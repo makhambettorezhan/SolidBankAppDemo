@@ -15,14 +15,14 @@ public class AccountCreationServiceImpl implements AccountCreationService {
     public void create(AccountType accountType, long bankId, String clientId, long accountId) {
         if(accountType != null) {
             //String accountNumber = String.format("%03d%06d", bankId, accountId);
-            boolean isWithdrawAllowed = true;
+            int isWithdrawAllowed = 1;
             if(accountType.getType().equals("FIXED"))
-                isWithdrawAllowed = false;
+                isWithdrawAllowed = 0;
 
             Account account = new Account(accountId, accountType.getType(), clientId, 0, 0);
             System.out.println("Bank account created successfully");
-            accountRepository.save(account);
-
+            //accountRepository.save(account);
+            accountRepository.addAccount(accountId, accountType.getType(), clientId, account.getBalance(), isWithdrawAllowed);
         }
     }
 }
