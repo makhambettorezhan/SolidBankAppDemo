@@ -30,7 +30,7 @@ public class MyCLI implements CLIUI {
     public Long requestClientAccountNumber() {
         System.out.println("Type account ID: ");
         String accountId = scanner.nextLine();
-        return Long.parseLong(accountId);
+        return Long.parseLong(accountId.substring(accountId.length()-2));
     }
 
     @Override

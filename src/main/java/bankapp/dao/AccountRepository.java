@@ -16,4 +16,7 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
                     "values (:accountId, :type, :clientId, :balance, :isWithdrawAllowed)"
     )
     void addAccount(long accountId, String type, String clientId, double balance, int isWithdrawAllowed);
+
+    @Query("select COUNT(a.account_id) from ACCOUNT a")
+    public int getAccountRepositorySize();
 }

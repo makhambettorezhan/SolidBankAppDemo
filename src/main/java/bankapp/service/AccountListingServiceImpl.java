@@ -2,7 +2,6 @@ package bankapp.service;
 
 import bankapp.account.Account;
 import bankapp.account.AccountType;
-import bankapp.account.AccountWithdraw;
 import bankapp.dao.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -16,15 +15,14 @@ public class AccountListingServiceImpl implements AccountListingService {
 
     @Override
     public Account getClientAccount(String clientId, long accountId) {
-        //return accountDAO.getClientAccount(clientId, accountId);
+        if(accountId > accountRepository.getAccountRepositorySize())
+            return null;
         return accountRepository.findById(accountId).get();
     }
 
     @Override
     public Account getClientWithdrawAccount(String clientId, Long accountId) {
-        //return accountDAO.getClientWithdrawAccount(clientId, accountId);
         return accountRepository.findById(accountId).get();
-
     }
 
     @Override
@@ -34,7 +32,10 @@ public class AccountListingServiceImpl implements AccountListingService {
 
     @Override
     public List<Account> getClientAccountsByType(String clientId, AccountType accountType) {
-        //return accountDAO.getClientAccountsByType(clientId, accountType);
         return null;
+    }
+    @Override
+    public int getAccountsSize() {
+        return accountRepository.getAccountRepositorySize();
     }
 }
