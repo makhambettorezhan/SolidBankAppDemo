@@ -33,5 +33,5 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
 
     @Modifying
     @Query("DELETE FROM ACCOUNT WHERE account_id=:accountId")
-    public void deleteAccountById();
+    public void deleteAccountById(Long accountId);
 }
