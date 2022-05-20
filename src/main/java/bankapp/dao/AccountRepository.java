@@ -30,4 +30,8 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
 
     @Query("SELECT * FROM ACCOUNT WHERE client_id=:clientId AND account_type=:type")
     Iterable<Account> findAccountsByType(String clientId, String type);
+
+    @Modifying
+    @Query("DELETE FROM ACCOUNT WHERE account_id=:accountId")
+    public void deleteAccountById();
 }
