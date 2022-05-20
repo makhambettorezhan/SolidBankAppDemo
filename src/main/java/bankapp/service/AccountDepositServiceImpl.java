@@ -15,7 +15,8 @@ public class AccountDepositServiceImpl implements AccountDepositService {
     private AccountRepository accountRepository;
     @Override
     public void deposit(double amount, Account account) {
-        System.out.println(amount + "$ transferred to " + account.getAccount_id() + " account");
+        String accountId = String.format("%03d%06d", 1, Integer.parseInt(account.getAccount_id()+""));
+        System.out.println(amount + "$ transferred to " + accountId + " account");
         account.setBalance(account.getBalance()+amount);
         accountRepository.save(account);
     }

@@ -16,7 +16,8 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
     public void withdraw(double amount, Account account) {
         double withdrawResult = account.getBalance()-amount;
         if(withdrawResult >= 0) {
-            System.out.println(amount + "$ transferred from " + account.getAccount_id() + " account");
+            String accountId  = String.format("%03d%06d", 1, Integer.parseInt(account.getAccount_id()+""));
+            System.out.println(amount + "$ transferred from " + accountId + " account");
             account.setBalance(withdrawResult);
             accountRepository.save(account);
         } else {

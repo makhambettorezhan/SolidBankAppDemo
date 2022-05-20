@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+
 @AllArgsConstructor
 @Repository
 public class AccountListingServiceImpl implements AccountListingService {
@@ -15,9 +17,10 @@ public class AccountListingServiceImpl implements AccountListingService {
 
     @Override
     public Account getClientAccount(String clientId, long accountId) {
-        if(accountId > accountRepository.getAccountRepositorySize())
-            return null;
-        return accountRepository.findById(accountId).get();
+        Optional<Account> account = accountRepository.findById(accountId);
+        if(account.isPresent())
+            return account.get();
+        return null;
     }
 
     @Override
