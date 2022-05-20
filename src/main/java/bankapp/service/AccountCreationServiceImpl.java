@@ -14,7 +14,6 @@ public class AccountCreationServiceImpl implements AccountCreationService {
     @Override
     public void create(AccountType accountType, long bankId, String clientId, long accountId) {
         if(accountType != null) {
-            //String accountNumber = String.format("%03d%06d", bankId, accountId);
             int isWithdrawAllowed = 1;
             if(accountType.getType().equals("FIXED"))
                 isWithdrawAllowed = 0;

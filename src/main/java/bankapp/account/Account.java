@@ -13,5 +13,16 @@ public class Account {
     private double balance;
     private int withdrawAllowed;
 
+    @Override
+    public String toString() {
+        String accountNumber = String.format("%03d%06d", 1, Integer.parseInt(this.getAccount_id()+""));
 
+        return "Account{" +
+                "account_id=" + accountNumber +
+                ", accountType='" + accountType + '\'' +
+                ", clientId='" + clientId + '\'' +
+                ", balance=" + balance +
+                ", withdrawAllowed=" + withdrawAllowed +
+                '}';
+    }
 }

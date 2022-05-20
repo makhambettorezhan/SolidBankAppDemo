@@ -6,7 +6,7 @@ import bankapp.account.AccountWithdraw;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public interface AccountListingService {
 
     public Account getClientAccount(String clientId, long accountId);
