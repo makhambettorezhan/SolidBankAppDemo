@@ -1,15 +1,32 @@
 # SolidBankAppDemo
 
+## About
+This Demo application can handle basic bank operations like
+- Creating an account
+- Listing accounts
+- Deposit money to certain account
+- Withdraw money from certain account
+- Uses ***h2*** database in memory to store Accounts and Transactions
+- Uses ***flyway*** to create tables ***ACCOUNT*** and ***TRANSACTION*** at runtime
+- Makes use of ***SOLID*** principles
+
+
 ## Steps to run the application
 - In IntelliJ, Setup a SDK (this app uses JDK 17)
 - Download all maven directories
 - Run the main method in DemoApplication class
 
 ## Running in command line
-In the main directory called solidbankapp execute the following command
+In the main directory called solidbankapp execute the following command:
 ```bash
 java -cp out/artifacts/demo_jar/demo.jar src/main/java/bankapp/DemoApplication.java
 ```
+Or if you would like to run this application using Maven, you could use the following command:
+```bash
+mvn compile
+mvn spring-boot:run
+```
+
 ## CLI inputs
 - 1 - show accounts  
 - 2 - create account  
