@@ -1,9 +1,9 @@
 package bankapp.transaction;
 
 import bankapp.account.Account;
-import bankapp.account.AccountWithdraw;
-import bankapp.dao.TransactionDAO;
+import bankapp.dao.TransactionRepository;
 import bankapp.service.AccountWithdrawService;
+import bankapp.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -11,10 +11,15 @@ import org.springframework.stereotype.Repository;
 @AllArgsConstructor
 public class TransactionWithdraw {
     private AccountWithdrawService accountWithdrawService;
-    private TransactionDAO transactionDAO;
+    private TransactionRepository transactionRepository;
+    private TransactionService transactionService;
 
     public void execute(double amount, Account accountWithdraw) {
         accountWithdrawService.withdraw(amount, accountWithdraw);
-        transactionDAO.addTransaction(new Transaction("WITHDRAW", amount, accountWithdraw.getClientId()));
+        Long accountId = accountWithdraw.getAccount_id();
+        String clientId = accountWithdraw.getClientId();
+        Long id = transactionService.getId();
+        transactionRepository.addTransaction(id, "WITHDRAW", clientId, accountId, amount);
+        transactionService.increment();
     }
 }

@@ -16,7 +16,7 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
             "INSERT INTO ACCOUNT (account_id, account_type, client_id, balance, withdraw_allowed) " +
                     "VALUES (:accountId, :type, :clientId, :balance, :isWithdrawAllowed)"
     )
-    void addAccount(long accountId, String type, String clientId, double balance, int isWithdrawAllowed);
+    public void addAccount(long accountId, String type, String clientId, double balance, int isWithdrawAllowed);
 
     @Query("SELECT * FROM ACCOUNT WHERE client_id = :clientId")
     public Iterable<Account> findAccountsByClientId(String clientId);

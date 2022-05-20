@@ -1,8 +1,9 @@
 package bankapp.transaction;
 
 import bankapp.account.Account;
-import bankapp.dao.TransactionDAO;
+import bankapp.dao.TransactionRepository;
 import bankapp.service.AccountDepositService;
+import bankapp.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -10,11 +11,15 @@ import org.springframework.stereotype.Repository;
 @AllArgsConstructor
 public class TransactionDeposit {
     private AccountDepositService accountDepositService;
-    private TransactionDAO transactionDAO;
+    private TransactionRepository transactionRepository;
 
+    private TransactionService transactionService;
     public void execute(double amount, Account accountDeposit) {
 
         accountDepositService.deposit(amount, accountDeposit);
-        transactionDAO.addTransaction(new Transaction("deposit", amount, "1"));
+        Long accountId = accountDeposit.getAccount_id();
+        Long id = transactionService.getId();
+        transactionRepository.addTransaction(id,"DEPOSIT", "1", accountId, amount);
+        transactionService.increment();
     }
 }
