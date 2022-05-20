@@ -15,7 +15,6 @@ public interface AccountListingService {
 
     public Iterable<Account> getClientAccounts(String clientId);
 
-    public List<Account> getClientAccountsByType(String clientId, AccountType accountType);
+    public Iterable<Account> getClientAccountsByType(String clientId, AccountType accountType);
 
-    public int getAccountsSize();
 }

@@ -34,11 +34,7 @@ public class AccountListingServiceImpl implements AccountListingService {
     }
 
     @Override
-    public List<Account> getClientAccountsByType(String clientId, AccountType accountType) {
-        return null;
-    }
-    @Override
-    public int getAccountsSize() {
-        return accountRepository.getAccountRepositorySize();
+    public Iterable<Account> getClientAccountsByType(String clientId, AccountType accountType) {
+        return accountRepository.findAccountsByType(clientId, accountType.getType());
     }
 }

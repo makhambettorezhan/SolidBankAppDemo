@@ -18,8 +18,9 @@ public class AccountWithdrawServiceImpl implements AccountWithdrawService {
         if(withdrawResult >= 0) {
             String accountId  = String.format("%03d%06d", 1, Integer.parseInt(account.getAccount_id()+""));
             System.out.println(amount + "$ transferred from " + accountId + " account");
-            account.setBalance(withdrawResult);
-            accountRepository.save(account);
+            //account.setBalance(withdrawResult);
+            //accountRepository.save(account);
+            accountRepository.updateAccountById(account.getAccount_id(), withdrawResult);
         } else {
             System.out.println("Withdraw not possible: not enough money");
         }

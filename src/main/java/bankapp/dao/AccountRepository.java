@@ -6,6 +6,7 @@ import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public interface AccountRepository extends CrudRepository<Account, Long> {
 
@@ -13,10 +14,20 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
     @Modifying
     @Query(
             "INSERT INTO ACCOUNT (account_id, account_type, client_id, balance, withdraw_allowed) " +
-                    "values (:accountId, :type, :clientId, :balance, :isWithdrawAllowed)"
+                    "VALUES (:accountId, :type, :clientId, :balance, :isWithdrawAllowed)"
     )
     void addAccount(long accountId, String type, String clientId, double balance, int isWithdrawAllowed);
 
-    @Query("select COUNT(a.account_id) from ACCOUNT a")
-    public int getAccountRepositorySize();
+    @Query("SELECT * FROM ACCOUNT WHERE client_id = :clientId")
+    public Iterable<Account> findAccountsByClientId(String clientId);
+
+    @Query("SELECT * FROM ACCOUNT WHERE client_id=:clientId order by balance")
+    public Iterable<Account> findAccountsOrderByBalance(String clientId);
+
+    @Modifying
+    @Query("UPDATE ACCOUNT a SET a.balance= :amount WHERE a.account_id= :accountId")
+    public void updateAccountById(long accountId, double amount);
+
+    @Query("SELECT * FROM ACCOUNT WHERE client_id=:clientId AND account_type=:type")
+    Iterable<Account> findAccountsByType(String clientId, String type);
 }
