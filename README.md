@@ -41,3 +41,7 @@ The output of the SolidBankApp1 is the following:
 
 ## SOLIDBANKAPP2 OUTPUT
 ![output2](https://i.imgur.com/X9ePcz5.png)
+
+
+## H2 DATABASE CONSOLE on localhost
+![](https://i.imgur.com/k87Z1XT.png)
