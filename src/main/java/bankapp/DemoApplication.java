@@ -51,6 +51,7 @@ public class DemoApplication implements CommandLineRunner {
 				case "7":
 					System.out.println("Application closed");
 					running = false;
+					System.exit(0);
 					break;
 				default:
 					System.out.println("Error: invalid command");
